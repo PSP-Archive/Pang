@@ -1,0 +1,17 @@
+TARGET = pang_psp
+OBJS = main.o PCGfxEngine.o PCSoundEngine.o structures.o ball.o collisions.o plateforme.o player.o ladder.o bonus.o shoot.o objets.o levels.o SDL_rotozoom.o
+
+INCDIR = 
+CFLAGS = -DRES320X240 -DPC_VERSION -DGP2X_VERSION -O2 -G0 -Wall
+CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
+ASFLAGS = $(CFLAGS)
+
+LIBS=-lSDL_mixer -lSDL_image -lSDL -lpspaudiolib -lpspaudio -lpspgum -lpspgu -lpsphprm -lpsppower -lpng -ljpeg -lz -lc -lm -lgcc
+LIBDIR =
+LDFLAGS =
+
+EXTRA_TARGETS = EBOOT.PBP
+PSP_EBOOT_TITLE = psp_pang
+
+PSPSDK=$(shell psp-config --pspsdk-path)
+include $(PSPSDK)/lib/build.mak
